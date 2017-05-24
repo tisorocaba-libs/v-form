@@ -1,0 +1,11 @@
+{
+	"name": "v-form",
+	"version": "1.0.0",
+	"description": "Vue Form Components",
+	"author": "Victor Bastos <victorwpbastos@gmail.com>",
+	"license": "MIT",
+	"dependencies": {
+		"v-mask": "github:victorwpbastos/v-mask",
+		"vuelidate": "^0.4.3"
+	}
+}
