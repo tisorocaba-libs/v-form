@@ -3,6 +3,7 @@
 	"version": "1.0.0",
 	"description": "Vue Form Components",
 	"author": "Victor Bastos <victorwpbastos@gmail.com>",
+	"main": "index.js",
 	"license": "MIT",
 	"dependencies": {
 		"v-mask": "github:victorwpbastos/v-mask",
