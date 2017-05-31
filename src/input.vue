@@ -1,39 +1,30 @@
 <template>
-	<v-wrapper v-bind="{ id, label, validation, wrapped }">
-		<input
-			class="form-control"
-			v-bind="$props"
-			:class="$props.classes"
-			:style="$props.styles"
-			v-mask="mask ? mask : ''"
-			ref="input"
-			@input="emitInput"
-		>
-	</v-wrapper>
+	<input
+		type="text"
+		class="form-control"
+		:value="value"
+		@input="emitInput"
+	>
 </template>
 
 <script>
-	import Base from './base';
-
 	export default {
-		extends: Base,
+		props: {
+			value: { default: '' }
+		},
 
 		methods: {
 			emitInput(e) {
 				this.$emit('input', e.target.value);
 
-				if (this.validation) {
-					this.validation.$touch();
-				}
-
 				setTimeout(() => {
-					if (this.mask) {
-						if (navigator.userAgent.indexOf('MSIE 9') !== -1) return;
-						
-						this.$refs.input.selectionStart = this.$refs.input.selectionEnd = this.mask.length;
+					if (navigator.userAgent.indexOf('MSIE 9') !== -1) return;
+
+					if (e.target) {
+						this.$el.selectionStart = this.$el.selectionEnd = e.target.value.length;
 					}
 				}, 0);
 			}
 		}
-	};
+	}
 </script>

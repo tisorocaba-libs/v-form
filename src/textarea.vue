@@ -1,20 +1,38 @@
 <template>
-	<v-wrapper v-bind="{ id, label, validation, wrapped }">
-		<textarea
-			class="form-control"
-			v-bind="$props"
-			:class="$props.classes"
-			:style="$props.styles"
-			ref="textarea"
-			@input="emitInput"
-		></textarea>
-	</v-wrapper>
+	<textarea
+		class="form-control"
+		:value="value"
+		@input="emitInput"
+	></textarea>
 </template>
 
 <script>
-	import Base from './base';
-
 	export default {
-		extends: Base
-	};
+		props: {
+			value: { default: '' },
+			autoResize: { default: true }
+		},
+
+		mounted() {
+			if (this.autoResize) {
+				this.resize();
+			}
+		},
+
+		methods: {
+			emitInput(e) {
+				this.$emit('input', e.target.value);
+
+				if (this.autoResize) {
+					this.resize();
+				}
+			},
+
+			resize() {
+				this.$el.style.overflow = 'hidden';
+				this.$el.style.height = 'auto';
+				this.$el.style.height = (this.$el.scrollHeight) + 'px';
+			}
+		}
+	}
 </script>

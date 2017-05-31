@@ -1,23 +1,21 @@
 <template>
-	<v-wrapper v-bind="{ id, label, validation, wrapped }">
-		<select
-			class="form-control"
-			v-bind="$props"
-			:class="$props.classes"
-			:style="$props.styles"
-			ref="select"
-			@change="emitInput"
-		>
-			<slot></slot>
-		</select>
-	</v-wrapper>
+	<select
+		class="form-control"
+		@change="emitInput"
+	>
+		<slot></slot>
+	</select>
 </template>
 
 <script>
-	import Base from './base';
-
 	export default {
-		extends: Base,
+		props: {
+			value: { default: null }
+		},
+
+		mounted() {
+			this.setInitialValue();
+		},
 
 		updated() {
 			this.setInitialValue();
@@ -35,24 +33,20 @@
 				} else {
 					this.$emit('input', values[0]);
 				}
-
-				if (this.validation) {
-					this.validation.$touch();
-				}
 			},
 
 			setInitialValue() {
 				if (this.value) {
-					let el = this.$refs.select;
+					let el = this.$el;
 					let options = [...el.options];
 
 					options.forEach((o, index) => {
-						if (o._value === this.value) {
+						if (JSON.stringify(o._value) === JSON.stringify(this.value)) {
 							el.selectedIndex = index;
 						}
 					});
 				}
 			}
 		}
-	};
+	}
 </script>

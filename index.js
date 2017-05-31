@@ -1,15 +1,13 @@
-import Vue from 'vue';
-import VueMask from 'v-mask';
 import register from './src/register';
+import group from './src/group';
 import input from './src/input';
-import select from './src/select';
 import textarea from './src/textarea';
-
-Vue.use(VueMask);
+import select from './src/select';
 
 export {
 	register,
+	group,
 	input,
-	select,
-	textarea
+	textarea,
+	select
 }
