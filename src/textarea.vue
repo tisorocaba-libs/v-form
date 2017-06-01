@@ -7,7 +7,11 @@
 </template>
 
 <script>
+	import BaseMixin from './base';
+
 	export default {
+		mixins: [BaseMixin],
+
 		props: {
 			value: { default: '' },
 			autoResize: { default: true }
