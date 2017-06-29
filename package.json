@@ -1,13 +1,22 @@
 {
 	"name": "v-form",
+	"description": "v-form",
+	"organization": "v-form",
 	"version": "1.0.0",
-	"description": "Vue Form Components",
-	"author": "Victor Bastos <victorwpbastos@gmail.com>",
-	"main": "index.js",
-	"license": "MIT",
+	"private": true,
+	"authors": [
+		"Victor Bastos <victorwpbastos@gmail.com>"
+	],
 	"dependencies": {
-		"v-mask": "github:victorwpbastos/v-mask",
+		"v-mask": "^1.2.0",
 		"vue": "^2.3.3",
-		"vuelidate": "^0.4.3"
+		"vuelidate": "^0.5.0"
+	},
+	"devDependencies": {
+		"eslint": "^3.19.0",
+		"eslint-loader": "^1.7.1",
+		"eslint-plugin-vue": "^2.0.1",
+		"vue-loader": "^12.2.1",
+		"vue-template-compiler": "^2.3.3"
 	}
 }

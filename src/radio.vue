@@ -50,11 +50,11 @@
 				}
 			},
 
-			emitInput(e) {
+			emitInput() {
 				this.$emit('change', this.value);
 			}
 		}
-	}
+	};
 </script>
 
 <style>

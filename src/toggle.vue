@@ -25,7 +25,7 @@
 		data() {
 			return {
 				longest: ''
-			}
+			};
 		},
 
 		watch: {
@@ -64,7 +64,7 @@
 				});
 			}
 		}
-	}
+	};
 </script>
 
 <style scoped>

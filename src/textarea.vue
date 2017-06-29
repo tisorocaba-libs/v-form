@@ -38,5 +38,5 @@
 				this.$el.style.height = (this.$el.scrollHeight) + 'px';
 			}
 		}
-	}
+	};
 </script>

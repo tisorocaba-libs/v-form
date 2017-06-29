@@ -16,7 +16,7 @@
 				default() {
 					return {
 						required: 'Preenchimento obrigatório'
-					}
+					};
 				}
 			}
 		},
@@ -26,7 +26,7 @@
 
 			return {
 				elementId
-			}
+			};
 		},
 
 		computed: {
@@ -68,7 +68,7 @@
 		beforeDestroy() {
 			this.slotElement.removeEventListener('input', this.validation.$touch);
 		}
-	}
+	};
 </script>
 
 <style scoped>

@@ -70,7 +70,7 @@
 				this.$emit('change', values);
 			}
 		}
-	}
+	};
 </script>
 
 <style>
