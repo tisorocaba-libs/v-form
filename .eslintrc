@@ -12,7 +12,7 @@
 	"plugins": ["vue"],
 	"rules": {
 		"indent": ["error", "tab"],
-		"linebreak-style": 0,
+		"linebreak-style": ["error", "unix"],
 		"quotes": ["error", "single"],
 		"semi": ["error", "always"],
 		"no-extra-semi": "error",
