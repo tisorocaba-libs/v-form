@@ -1,7 +1,7 @@
 <template>
 	<label class="radio-inline">
 		<span class="radio-container">
-			<input type="radio" :id="id" :value="value" :checked="isChecked" @change="emitInput">
+			<input type="radio" :id="id" :value="value" :checked="isChecked" @change="emitChange">
 			<label :for="id"></label>
 		</span>
 	</label>
@@ -50,7 +50,7 @@
 				}
 			},
 
-			emitInput() {
+			emitChange() {
 				this.$emit('change', this.value);
 			}
 		}

@@ -1,7 +1,7 @@
 <template>
 	<label class="checkbox-inline">
 		<span class="checkbox-container">
-			<input type="checkbox" :id="id" :value="value" :checked="isChecked" @change="emitInput">
+			<input type="checkbox" :id="id" :value="value" :checked="isChecked" @change="emitChange">
 			<label :for="id"></label>
 		</span>
 	</label>
@@ -54,7 +54,7 @@
 				}
 			},
 
-			emitInput(e) {
+			emitChange(e) {
 				let values = this.modelValue;
 
 				if (Array.isArray(values)) {

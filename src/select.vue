@@ -1,7 +1,7 @@
 <template>
 	<select
 		class="form-control"
-		@change="emitInput"
+		@change="emitChange"
 	>
 		<slot></slot>
 	</select>
@@ -26,7 +26,7 @@
 		},
 
 		methods: {
-			emitInput(e) {
+			emitChange(e) {
 				let selectedOptions = [...e.target.options].filter(o => o.selected === true);
 				let values = selectedOptions.map(option => {
 					return option._value !== undefined ? option._value : option.value;
