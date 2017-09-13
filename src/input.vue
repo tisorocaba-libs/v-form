@@ -17,17 +17,37 @@
 			value: { default: '' }
 		},
 
+		data() {
+			return {
+				lastPosition: 0,
+				preventCursorJump: false
+			};
+		},
+
 		methods: {
 			emitInput(e) {
 				this.$emit('input', e.target.value);
 
-				setTimeout(() => {
-					if (navigator.userAgent.indexOf('MSIE 9') !== -1) return;
+				if (e instanceof InputEvent) {
 
-					if (e.target) {
-						this.$el.selectionStart = this.$el.selectionEnd = e.target.value.length;
+					this.lastPosition = e.target.selectionEnd;
+
+					if (e.target.value.length > this.lastPosition) {
+						this.preventCursorJump = true;
+					} else {
+						this.lastPosition++;
 					}
-				}, 0);
+
+					setTimeout(() => {
+						if (navigator.userAgent.indexOf('MSIE 9') !== -1) return;
+
+						if (this.preventCursorJump) {
+							this.$el.selectionStart = this.$el.selectionEnd = this.lastPosition;
+						} else {
+							this.$el.selectionStart = this.$el.selectionEnd = e.target.value.length;
+						}
+					});
+				}
 			}
 		}
 	};
